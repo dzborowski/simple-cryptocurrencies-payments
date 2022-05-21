@@ -1,0 +1,24 @@
+.TransactionView {
+    padding: 50px 100px;
+}
+
+.site-page-header {
+    border: 1px solid rgb(235, 237, 240);
+}
+
+.ant-page-header-heading {
+    justify-content: center !important;
+}
+
+.transaction-state {
+    margin: 75px 0 !important;
+}
+
+.available-actions-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.available-actions {
+    width: 30%;
+}

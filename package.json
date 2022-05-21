@@ -1,0 +1,53 @@
+{
+  "name": "simple-cryptocurrencies-payments",
+  "version": "1.0.0",
+  "description": "Pay using cryptocurrencies.",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dzborowski/simple-cryptocurrencies-payments.git"
+  },
+  "keywords": ["smart-contracts", "ethereum"],
+  "author": "Damian Zborowski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dzborowski/simple-cryptocurrencies-payments/issues"
+  },
+  "homepage": "https://github.com/dzborowski/simple-cryptocurrencies-payments#readme",
+  "scripts": {
+    "smart-contracts:compile": "truffle compile",
+    "smart-contracts:migrate": "truffle migrate --network ropsten",
+    "ecommerce-bridge:dev": "webpack --watch --mode=development",
+    "ecommerce-bridge:prod": "webpack --mode=production",
+    "eslint:check": "eslint . --ext .ts",
+    "eslint:fix": "eslint . --ext .ts --fix",
+    "prettier:check": "prettier --check .",
+    "prettier:fix": "prettier --write ."
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.37",
+    "@typescript-eslint/eslint-plugin": "^5.22.0",
+    "@typescript-eslint/parser": "^5.22.0",
+    "eslint": "^8.14.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^8.5.0",
+    "prettier": "2.6.2",
+    "typescript": "^4.6.4"
+  },
+  "dependencies": {
+    "@truffle/hdwallet-provider": "^2.0.8",
+    "@types/command-line-args": "^5.2.0",
+    "axios": "^0.27.2",
+    "command-line-args": "^5.2.1",
+    "ts-loader": "^9.3.0",
+    "web3": "^1.7.3",
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2"
+  },
+  "peerDependencies": {
+    "truffle": "^5.5.12"
+  }
+}
