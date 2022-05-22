@@ -24,7 +24,7 @@ function payment_confirmation_handler()
 
         if ($order->get_meta('transaction_contract_address') !== $transaction_contract_address) {
             http_response_code(400);
-            return;
+            exit;
         }
 
         $command = "node --no-deprecation ecommerce-bridge.js --action={$action} --transactionContractAddress={$transaction_contract_address}";
