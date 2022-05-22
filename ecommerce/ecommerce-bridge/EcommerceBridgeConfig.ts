@@ -11,7 +11,7 @@ export class EcommerceBridgeConfig {
     }
 
     public static getContractAddress(): string {
-        return process.env.CONTRACT_ADDRESS || "0xac85A9E34016e465386d999010791D57116B738b";
+        return process.env.CONTRACT_ADDRESS || "0xCE0c5c4E1e19CEBB36ED145e0b8735C3BDE19Ef4";
     }
 
     public static getSCPAddress(): string {

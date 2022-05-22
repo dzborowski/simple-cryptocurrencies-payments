@@ -19,7 +19,7 @@
   "homepage": "https://github.com/dzborowski/simple-cryptocurrencies-payments#readme",
   "scripts": {
     "smart-contracts:compile": "truffle compile",
-    "smart-contracts:migrate": "truffle migrate --network ropsten",
+    "smart-contracts:migrate": "truffle migrate --network ropsten --reset",
     "ecommerce-bridge:dev": "webpack --watch --mode=development",
     "ecommerce-bridge:prod": "webpack --mode=production",
     "eslint:check": "eslint . --ext .ts",
