@@ -20,13 +20,17 @@ function payment_confirmation_handler()
         $action = "GET_TRANSACTION_CONTRACT_STATE";
         $order_id = intval($_GET["orderId"]);
         $transaction_contract_address = $_GET["transactionContractAddress"];
+        $order = new WC_Order($order_id);
+
+        if ($order->get_meta('transaction_contract_address') !== $transaction_contract_address) {
+            http_response_code(400);
+            return;
+        }
 
         $command = "node --no-deprecation ecommerce-bridge.js --action={$action} --transactionContractAddress={$transaction_contract_address}";
         $result = exec("cd " . __DIR__ . "; {$command} 2>&1", $out, $err);
         $decoded_result = json_decode($result, true);
-
         $state = $decoded_result['state'];
-        $order = new WC_Order($order_id);
 
         if ($state == TransactionState::Locked) {
             $order->payment_complete();

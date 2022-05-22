@@ -24,8 +24,6 @@ function init_simple_cryptocurrencies_payments_gateway()
             $this->title = $this->get_option('title');
             $this->description = $this->get_option('description');
             $this->enabled = $this->get_option('enabled');
-            $this->app_access_token = $this->get_option('app_access_token');
-            $this->merchant_access_token = $this->get_option('merchant_access_token');
 
             add_action('woocommerce_update_options_payment_gateways_' . $this->id, array($this, 'process_admin_options'));
         }
@@ -50,12 +48,6 @@ function init_simple_cryptocurrencies_payments_gateway()
                     'type'        => 'textarea',
                     'description' => 'The description which the user sees during checkout.',
                     'default'     => 'Pay using cryptocurrencies.',
-                ),
-                'app_access_token' => array(
-                    'title'       => 'App access token',
-                    'type'        => 'text',
-                    'description' => 'Your e-commerce access token, included in calls from transaction system to your e-commerce',
-                    'default'     => random_bytes(16),
                 ),
             );
         }
@@ -97,6 +89,7 @@ function init_simple_cryptocurrencies_payments_gateway()
 
                 $finalize_payment_transaction_url .= "?confirmTransactionWebhookUrl={$encoded_confirm_transaction_webhook_url}";
 
+                $order->update_meta_data('transaction_contract_address', $transaction_contract_address);
                 $order->update_meta_data('finalize_payment_transaction_url', esc_attr($finalize_payment_transaction_url));
                 $order->save();
             } catch (Exception $exception) {
